@@ -1,0 +1,48 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}
+    Projects page
+{% endblock %}
+
+{% block projectsNavStyle %} current_page {% endblock %}
+
+{% block main %}
+
+    <h2>
+        List of Projects - {{ status }}
+    </h2>
+
+    <div id = "fixMarginForButtons">
+        <form method = "get" action = "/projects" class = "fixDisplayForms">
+            <input type = "submit" value = "All Projects">
+        </form>
+
+        <form method = "get" action = "/showCurrentProjects" class = "fixDisplayForms" id = "fixMarginMiddleButton">
+            <input type = "submit" value = "Current Projects">
+        </form>
+
+        <form method = "get" action = "/showPastProjects" class = "fixDisplayForms">
+            <input type = "submit" value = "Past Projects">
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th> Project ID </th>
+            <th> Project Name </th>
+            <th> Project Title </th>
+            <th> Project Supervisor </th>
+            <th> Project Status </th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td> {{ project.id }} </td>
+            <td> {{ project.projectName }} </td>
+            <td> {{ project.projectTitle }} </td>
+            <td> {{ project.projectSupervisor }} </td>
+            <td> {{ project.projectStatus }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

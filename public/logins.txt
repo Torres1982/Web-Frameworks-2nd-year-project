@@ -1,0 +1,7 @@
+Login Table passwords:
+
+//It generates login username and password automatically once the new Login User has been created
+
+Username: Artur / Password: Torres / (admin)
+Username: Mary / Password: Stew / (member)
+Username: John / Password: Clark / (student)

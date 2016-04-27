@@ -1,0 +1,42 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Edit Publication Form page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Edit Publication Form) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <form method = "post" action = "/adminEditPublicationFromDb">
+            <input type = "hidden" name = "id" value = "{{ publication.id }}">
+        <p>
+            <input type = "text" name = "title"  value = "{{ publication.title }}" placeholder = "Publication Title">
+        </p>
+        <p>
+            <input type = "text" name = "authorId" value = "{{ publication.authorId }}" placeholder = "Author ID">
+        </p>
+        <p>
+            <input type = "text"  name = "url" value = "{{ publication.url }}" placeholder = "URL">
+        </p>
+        <p>
+            <input type = "text" name = "datePublished" value = "{{ publication.datePublished }}" placeholder = "Published [yyyy-mm-dd]">
+        </p>
+        <p>
+            <input type = "submit" value = "Edit Publication">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

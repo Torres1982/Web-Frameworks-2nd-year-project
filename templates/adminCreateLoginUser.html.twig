@@ -1,0 +1,45 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Create Login User page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Create Login User) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <p>
+        <span id = "matchPasswordsError"> {{ matchPasswordsErrorMessage }} </span>
+    </p>
+
+    <form method = "post" action = "/adminInsertLoginUserIntoDb">
+        <p>
+            <input type = "text" name = "username" placeholder = "Username" required>
+        </p>
+        <p>
+            <input type = "password" name = "password" placeholder = "Password" required>
+        </p>
+        <p>
+            <input type = "password" name = "passwordRetype" placeholder = "Retype Password" required>
+        </p>
+        <p>
+            <input type = "text"  name = "role" placeholder = "Role" required>
+        </p>
+        <p>
+            <input type = "submit" value = "Insert Login User">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

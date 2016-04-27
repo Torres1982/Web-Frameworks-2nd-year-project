@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title> Researchers - {% block title %}{% endblock %} </title>
+    <style>
+        @import "/css/style.css";
+        @import "/css/nav.css";
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src = "../img/headerLogo.png" alt = "Header Logo" id = "imageDimension">
+</nav>
+
+<nav id = "headerTitle">
+    <p> Gaming & Graphics Group </p>
+</nav>
+
+<nav>
+    <p>
+        {% set dateTime = date(article.date) %}
+        <span id = "dateTime"> {{ dateTime | date("l, d F Y", "Europe/Dublin") }} </span>
+    </p>
+</nav>
+
+<nav>
+    <ul>
+        <li>
+            <a href = "index" class = "{% block indexNavStyle %}{% endblock %}"> Home </a>
+        </li>
+        <li>
+            <a href = "members" class = "{% block membersNavStyle %}{% endblock %}"> Members </a>
+        </li>
+        <li>
+            <a href = "students" class = "{% block studentsNavStyle %}{% endblock %}"> Students </a>
+        </li>
+        <li>
+            <a href = "projects" class = "{% block projectsNavStyle %}{% endblock %}"> Projects </a>
+        </li>
+        <li>
+            <a href = "publications" class = "{% block publicationsNavStyle %}{% endblock %}"> Publications </a>
+        </li>
+    </ul>
+</nav>
+
+{% block main %}
+{% endblock %}
+
+<footer>
+    <p>
+        2016 &copy; Researchers Ltd
+    </p>
+    <p>
+        Institute of Technology Blanchardstown
+    </p>
+    <p>
+        Blanchardstown North Road, Dublin 15
+    </p>
+</footer>
+</body>
+</html>

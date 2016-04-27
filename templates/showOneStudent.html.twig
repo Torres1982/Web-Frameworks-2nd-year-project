@@ -1,0 +1,31 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block pageTitle %} Show One Student Page {% endblock %}
+
+{% block main %}
+
+    <h2> Show One Student </h2>
+    <hr>
+    <p>
+        Student Name: {{ student.studentName }} {{ student.studentSurname }}
+    </p>
+    <p>
+        Student ID: {{ student.id }}
+    </p>
+    <p>
+        Student Email: {{ student.email }}
+    </p>
+    <p>
+        Student's Supervisor: {{ student.memberId }}
+    </p>
+    <p>
+        Student's Project: {{ student.projectId }}
+    </p>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/students" class = "editLinks"> Back </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

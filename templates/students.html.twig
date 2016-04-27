@@ -1,0 +1,38 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}
+    Students page
+{% endblock %}
+
+{% block studentsNavStyle %} current_page {% endblock %}
+
+{% block main %}
+
+    <h2>
+        List of all Students
+    </h2>
+
+    <table>
+        <tr>
+            <th> Student ID </th>
+            <th> Student Name </th>
+            <th> Student Surname </th>
+            <th> Project ID </th>
+            <th> Email </th>
+            <th> Supervisor </th>
+            <th> Show </th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td> {{ student.id }} </td>
+            <td> {{ student.studentName }} </td>
+            <td> {{ student.studentSurname }} </td>
+            <td> {{ student.projectId }} </td>
+            <td> {{ student.email }} </td>
+            <td> {{ student.memberId }} </td>
+            <td> <a href = "/showOneStudent/{{ student.id }}"> show </a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

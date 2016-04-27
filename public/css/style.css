@@ -1,0 +1,137 @@
+body {
+    background-color: cyan;
+}
+
+footer {
+    border-top: 0.2rem red solid;
+    padding: 0.1rem;
+    text-align: center;
+    background-color: yellow;
+}
+
+/************ HEADER ****************/
+/************************************/
+#imageDimension {
+    width: 22rem;
+    height: 4rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#headerTitle {
+    color: darkblue;
+    text-align: center;
+}
+
+#dateTime {
+    color: blue;
+    float: right;
+    margin-bottom: 1rem;
+}
+
+/************* TABLE  ***************/
+/************************************/
+table {
+    margin-bottom: 1rem;
+}
+
+tr, td, th {
+    border: 0.1rem solid red;
+    border-radius: 0.2rem;
+    padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+}
+
+th {
+    background-color: yellow;
+}
+
+/********** WELCOME INFO  ***********/
+/************************************/
+#alignLeft {
+    color: blue;
+    font-style: normal;
+}
+
+#alignRight {
+    font-style: normal;
+    float: right;
+}
+
+#floatRight {
+    float: right;
+}
+
+h4 {
+    color: red;
+    clear: right;
+}
+
+#loginError,
+#confirmMessage,
+#matchPasswordsError {
+    color: red;
+}
+
+/************* LINKS  ***************/
+/************************************/
+.removeBullet {
+    list-style-type: none;
+    padding-bottom: 0.3rem;
+}
+
+.editLinks {
+    text-decoration: none;
+    border: 0.1rem solid red;
+    padding: 0.2rem;
+    display: block;
+    width: 10rem;
+    text-align: center;
+    background-color: yellow;
+    border-radius: 0.3rem;
+}
+
+.styleLogin {
+    text-decoration: none;
+    border: 0.1rem solid yellow;
+    text-align: center;
+    color: white;
+    background-color: grey;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+span {
+    font-style: italic;
+}
+
+strong {
+    color: red;
+}
+
+label {
+    color: red;
+    width: 8rem;
+    display: inline-block;
+}
+
+h2 {
+    color: blue;
+}
+
+/********** MEMBERS PUBLIC  *********/
+/********* PROJECTS PUBLIC  *********/
+/************************************/
+.fixDisplayForms {
+    width: 150px;
+    display: inline-block;
+}
+
+#fixMarginForButtons {
+    margin-bottom: 1rem;
+}
+
+#fixMarginMiddleButton {
+    margin-right: 1.5rem;
+}

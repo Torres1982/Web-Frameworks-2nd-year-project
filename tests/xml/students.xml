@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dataset name="researchers">
+    <table name="students">
+        <!-- row students -->
+        <column name="id">id</column>
+        <column name="studentName">studentName</column>
+        <column name="studentSurname">studentSurname</column>
+        <column name="projectId">projectId</column>
+        <column name="email">email</column>
+        <column name="memberId">memberId</column>
+
+        <row name="students">
+            <value name="id">2</value>
+            <value name="studentName">Brian</value>
+            <value name="studentSurname">Murphy</value>
+            <value name="projectId">2</value>
+            <value name="email">stevenmurphy@gmail.com</value>
+            <value name="memberId">3</value>
+        </row>
+        <row name="students">
+            <value name="id">3</value>
+            <value name="studentName">Aoife</value>
+            <value name="studentSurname">McCarthy</value>
+            <value name="projectId">4</value>
+            <value name="email">aoifemccarthy@gmail.com</value>
+            <value name="memberId">7</value>
+        </row>
+        <row name="students">
+            <value name="id">4</value>
+            <value name="studentName">Anna</value>
+            <value name="studentSurname">Stew</value>
+            <value name="projectId">8</value>
+            <value name="email">annastew@gmail.com</value>
+            <value name="memberId">5</value>
+        </row>
+        <row name="students">
+            <value name="id">5</value>
+            <value name="studentName">Mary</value>
+            <value name="studentSurname">Brown</value>
+            <value name="projectId">6</value>
+            <value name="email">marybrown@gmail.com</value>
+            <value name="memberId">2</value>
+        </row>
+        <row name="students">
+            <value name="id">8</value>
+            <value name="studentName">Barry</value>
+            <value name="studentSurname">Manning</value>
+            <value name="projectId">2</value>
+            <value name="email">manning@gmail.com</value>
+            <value name="memberId">8</value>
+        </row>
+        <row name="students">
+            <value name="id">9</value>
+            <value name="studentName">John</value>
+            <value name="studentSurname">Clark</value>
+            <value name="projectId">7</value>
+            <value name="email">clark@gmail.com</value>
+            <value name="memberId">3</value>
+        </row>
+    </table>
+</dataset>

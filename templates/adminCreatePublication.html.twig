@@ -1,0 +1,41 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Create Publication page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Create Publication) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <form method = "post" action = "/adminInsertPublicationIntoDb">
+        <p>
+            <input type = "text" name = "title" placeholder = "Title" required>
+        </p>
+        <p>
+            <input type = "text" name = "authorId" placeholder = "Author ID" required>
+        </p>
+        <p>
+            <input type = "text"  name = "url" placeholder = "URL" required>
+        </p>
+        <p>
+            <input type = "text" name = "datePublished" placeholder = "Date Published [yyyy-mm-dd]" required>
+        </p>
+        <p>
+            <input type = "submit" value = "Insert Publication">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

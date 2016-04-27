@@ -1,0 +1,48 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}
+    Members page
+{% endblock %}
+
+{% block membersNavStyle %} current_page {% endblock %}
+
+{% block main %}
+
+    <h2>
+        List of Members - {{ status }}
+    </h2>
+
+    <div id = "fixMarginForButtons">
+        <form method = "get" action = "/members" class = "fixDisplayForms">
+            <input type = "submit" value = "All Members">
+        </form>
+
+        <form method = "get" action = "/showCurrentMembers" class = "fixDisplayForms" id = "fixMarginMiddleButton">
+            <input type = "submit" value = "Current Members">
+        </form>
+
+        <form method = "get" action = "/showPastMembers" class = "fixDisplayForms">
+            <input type = "submit" value = "Past Members">
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th> Member ID </th>
+            <th> Member Name </th>
+            <th> Member Surname </th>
+            <th> Email </th>
+            <th> Member Status </th>
+        </tr>
+        {% for member in members %}
+        <tr>
+            <td> {{ member.id }} </td>
+            <td> {{ member.memberName }} </td>
+            <td> {{ member.memberSurname }} </td>
+            <td> {{ member.email }} </td>
+            <td> {{ member.memberStatus }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

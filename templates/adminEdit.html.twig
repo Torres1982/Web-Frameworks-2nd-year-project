@@ -1,0 +1,29 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Edit page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Edit) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminEditStudent" class = "editLinks"> Edit Student </a> </li>
+            <li class = "removeBullet"> <a href = "/adminEditMember" class = "editLinks"> Edit Member </a> </li>
+            <li class = "removeBullet"> <a href = "/adminEditProject" class = "editLinks"> Edit Project </a> </li>
+            <li class = "removeBullet"> <a href = "/adminEditPublication" class = "editLinks"> Edit Publication </a> </li>
+        </ul>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

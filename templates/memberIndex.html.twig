@@ -1,0 +1,28 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Member Index page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Member (Home Page) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Create </a> </li>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Read </a> </li>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Edit </a> </li>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Delete </a> </li>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Upload Profile Photo </a> </li>
+            <li class = "removeBullet"> <a href = "#" class = "editLinks"> Upload Project Photo </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

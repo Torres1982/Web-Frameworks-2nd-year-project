@@ -1,0 +1,24 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Student Index page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Student (Home Page) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/studentReadYourself" class = "editLinks"> Read </a> </li>
+            <li class = "removeBullet"> <a href = "/studentUploadPhoto" class = "editLinks"> Upload Photo </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

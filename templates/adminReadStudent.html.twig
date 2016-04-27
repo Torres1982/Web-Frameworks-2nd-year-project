@@ -1,0 +1,44 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Read Student page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Read Student) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <table>
+        <tr>
+            <th> Student ID </th>
+            <th> Student Name </th>
+            <th> Student Surname </th>
+            <th> Project ID </th>
+            <th> Email </th>
+            <th> Supervisor </th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td> {{ student.id }} </td>
+                <td> {{ student.studentName }} </td>
+                <td> {{ student.studentSurname }} </td>
+                <td> {{ student.projectId }} </td>
+                <td> {{ student.email }} </td>
+                <td> {{ student.memberId }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

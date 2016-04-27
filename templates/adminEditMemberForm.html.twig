@@ -1,0 +1,45 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Edit Member Form page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Edit Member Form) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <form method = "post" action = "/adminEditMemberFromDb">
+            <input type = "hidden" name = "id" value = "{{ member.id }}">
+        <p>
+            <input type = "text" name = "memberName"  value = "{{ member.memberName }}" placeholder = "Member Name">
+        </p>
+        <p>
+            <input type = "text" name = "memberSurname" value = "{{ member.memberSurname }}" placeholder = "Member Surname">
+        </p>
+        <p>
+            <input type = "text"  name = "projectId" value = "{{ member.projectId }}" placeholder = "Project Id">
+        </p>
+        <p>
+            <input type = "text" name = "email" value = "{{ member.email }}" placeholder = "Email">
+        </p>
+        <p>
+            <input type = "text" name = "memberStatus" value = "{{ member.memberStatus }}" placeholder = "Member Status">
+        </p>
+        <p>
+            <input type = "submit" value = "Edit Member">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

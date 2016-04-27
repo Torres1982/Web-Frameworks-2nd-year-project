@@ -1,0 +1,25 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Confirmation page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h3>
+        <strong> Action Confirmation </strong>
+    </h3>
+
+    <div id = "confirmMessage">
+        {{ confirmMessage }}
+    </div>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

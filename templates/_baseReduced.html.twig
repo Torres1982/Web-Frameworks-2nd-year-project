@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title> Researchers - {% block title %} {% endblock %} </title>
+    <style>
+        @import "/css/style.css";
+        @import "/css/nav.css";
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src = "../img/headerLogo.png" alt = "Header Logo" id = "imageDimension">
+</nav>
+
+<nav id = "headerTitle">
+    <p> Gaming & Graphics Group </p>
+</nav>
+
+<nav>
+    <p>
+        {% set dateTime = date(article.date) %}
+        <span id = "dateTime"> {{ dateTime | date("l, d F Y", "Europe/Dublin") }} </span>
+    </p>
+</nav>
+
+{% block main %} {% endblock %}
+
+<footer>
+    <p>
+        2016 &copy; Researchers Ltd
+    </p>
+    <p>
+        Institute of Technology Blanchardstown
+    </p>
+    <p>
+        Blanchardstown North Road, Dublin 15
+    </p>
+</footer>
+</body>
+</html>

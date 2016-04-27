@@ -1,0 +1,42 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Read Project page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Read Project) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <table>
+        <tr>
+            <th> Project ID </th>
+            <th> Project Name </th>
+            <th> Project Title </th>
+            <th> Project Supervisor </th>
+            <th> Project Status </th>
+        </tr>
+        {% for project in projects %}
+            <tr>
+                <td> {{ project.id }} </td>
+                <td> {{ project.projectName }} </td>
+                <td> {{ project.projectTitle }} </td>
+                <td> {{ project.projectSupervisor }} </td>
+                <td> {{ project.projectStatus }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

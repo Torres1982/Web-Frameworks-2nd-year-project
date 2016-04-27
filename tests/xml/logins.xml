@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<dataset name="researchers">
+    <table name="logins">
+        <!-- row logins -->
+        <column name="id">id</column>
+        <column name="username">Username</column>
+        <column name="password">Password</column>
+        <column name="role">Role</column>
+
+        <row name="logins">
+            <value name="id">13</value>
+            <value name="username">Artur</value>
+            <value name="password">Torres</value>
+            <value name="role">admin</value>
+        </row>
+        <row name="logins">
+            <value name="id">15</value>
+            <value name="username">John</value>
+            <value name="password">Clark</value>
+            <value name="role">student</value>
+        </row>
+        <row name="logins">
+            <value name="id">16</value>
+            <value name="username">Mary</value>
+            <value name="password">Stew</value>
+            <value name="role">member</value>
+        </row>
+    </table>
+</dataset>

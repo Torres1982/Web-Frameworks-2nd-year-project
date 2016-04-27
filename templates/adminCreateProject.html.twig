@@ -1,0 +1,41 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Create Project page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Create Project) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <form method = "post" action = "/adminInsertProjectIntoDb">
+        <p>
+            <input type = "text" name = "projectName" placeholder = "Project Name" required>
+        </p>
+        <p>
+            <input type = "text" name = "projectTitle" placeholder = "Project Title" required>
+        </p>
+        <p>
+            <input type = "text"  name = "projectSupervisor" placeholder = "Project Supervisor" required>
+        </p>
+        <p>
+            <input type = "text" name = "projectStatus" placeholder = "Project Status" required>
+        </p>
+        <p>
+            <input type = "submit" value = "Insert Project">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

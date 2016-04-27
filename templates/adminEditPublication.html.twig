@@ -1,0 +1,43 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Edit Publication page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Edit Publication) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <table>
+        <tr>
+            <th> Publication ID </th>
+            <th> Publication Title </th>
+            <th> Author ID </th>
+            <th> URL </th>
+            <th> Date Published </th>
+        </tr>
+        {% for publication in publications %}
+            <tr>
+                <td> {{ publication.id }} </td>
+                <td> {{ publication.title }} </td>
+                <td> {{ publication.authorId }} </td>
+                <td> {{ publication.url }} </td>
+                <td> {{ publication.datePublished }} </td>
+                <td> <a href = "adminEditPublicationForm/{{ publication.id }}"> Edit </a> </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Delete page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Delete) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminDeleteStudent" class = "editLinks"> Delete Student </a> </li>
+            <li class = "removeBullet"> <a href = "/adminDeleteMember" class = "editLinks"> Delete Member </a> </li>
+            <li class = "removeBullet"> <a href = "/adminDeleteProject" class = "editLinks"> Delete Project </a> </li>
+            <li class = "removeBullet"> <a href = "/adminDeletePublication" class = "editLinks"> Delete Publication </a> </li>
+            <li class = "removeBullet"> <a href = "/adminDeleteLoginUser" class = "editLinks"> Delete Login User </a> </li>
+        </ul>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

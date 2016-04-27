@@ -1,0 +1,40 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Read Login User page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Read Login User) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <table>
+        <tr>
+            <th> Login User ID </th>
+            <th> Login Username </th>
+            <th> Login User Role </th>
+            <th> Login User Password </th>
+        </tr>
+        {% for login in logins %}
+            <tr>
+                <td> {{ login.id }} </td>
+                <td> {{ login.username }} </td>
+                <td> {{ login.role }} </td>
+                <td> {{ login.password }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}
+    Publications page
+{% endblock %}
+
+{% block publicationsNavStyle %} current_page {% endblock %}
+
+{% block main %}
+
+    <h2>
+        List of all Published Projects
+    </h2>
+
+    <table>
+        <tr>
+            <th> Publication ID </th>
+            <th> Publication Title </th>
+            <th> Author ID </th>
+            <th> URL </th>
+            <th> Date Published </th>
+        </tr>
+        {% for publication in publications %}
+        <tr>
+            <td> {{ publication.id }} </td>
+            <td> {{ publication.title }} </td>
+            <td> {{ publication.authorId }} </td>
+            <td> <a href = "docs/{{ publication.url }}" target = "tab" > download <img src = "img/pdfIcon.png" alt = "pdf icon"> </a> </td>
+            <td> {{ publication.datePublished }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
