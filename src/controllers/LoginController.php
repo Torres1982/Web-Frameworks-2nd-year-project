@@ -15,6 +15,7 @@ use Itb\Model\Publication;
 use Itb\Model\Student;
 
 /**
+ * Testing new Repository
  * Class LoginController - manages 'login' actions
  * @package Itb\Controller
  */
