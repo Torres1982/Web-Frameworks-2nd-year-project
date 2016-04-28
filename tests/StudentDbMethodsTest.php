@@ -1,8 +1,6 @@
 <?php
 namespace ItbTest;
 
-use Itb\Model\Student;
-
 /**
  * Class StudentDbMethodsTest - it manages the 'getStudentByUsername' test
  * @package ItbTest
@@ -53,38 +51,5 @@ class StudentDbMethodsTest extends \PHPUnit_Extensions_Database_TestCase
 
         // Assert
         $this->assertEquals($expectedResult, $this->getConnection()->getRowCount('students'));
-    }
-
-    /**
-     * Test get Student by username - existing username
-     */
-    public function testGetStudentByUsername()
-    {
-        // Arrange
-        $student = new Student();
-        $studentName = 'Brian';
-
-        // Act
-        $object = $student->getStudentByUsername($studentName);
-
-        // Assert
-        $this->assertNotNull($object);
-        //$this->assertTrue(is_string($studentName));
-    }
-
-    /**
-     * Test get Student by username - non existing username
-     */
-    public function testGetStudentByUsernameNonExistingUser()
-    {
-        // Arrange
-        $student = new Student();
-        $nonExistingUser = null;
-
-        // Act
-        $object = $student->getStudentByUsername($nonExistingUser);
-
-        // Assert
-        $this->assertNull($object);
     }
 }
