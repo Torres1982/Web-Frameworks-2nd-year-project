@@ -66,6 +66,16 @@ class AdminController
                 return $app['twig']->render($templateName . '.html.twig', $argsArray);
             }
         }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
+
+        $argsArray = [
+            'confirmMessage' => $errorMessage
+        ];
+
+        $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
     /**
@@ -110,7 +120,7 @@ class AdminController
         }
 
         // If the session is not set and is not true - display error
-        $errorMessage = 'You do not have rights to perform this operation!';
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
             'confirmMessage' => $errorMessage

@@ -61,10 +61,12 @@ class LoginDbMethodsTest extends \PHPUnit_Extensions_Database_TestCase
     public function testGetLoginUserByUsernameNonExistingUser()
     {
         // Arrange
+        //$login = new Login();
         $user = null;
 
         // Act
         $object = Login::getOneByUsername($user);
+        //$object = $login->getOneByUsername($user);
 
         // Assert
         $this->assertNull($object);
@@ -77,18 +79,39 @@ class LoginDbMethodsTest extends \PHPUnit_Extensions_Database_TestCase
     {
         // Arrange
         $login = new Login();
-        $role = 'admin';
-        $login->setRole($role);
+        $username = 'Artur';
+        $password = 'Torres';
+        $login->setPassword($password);
+        $login->setUsername($username);
 
         // Act
-        $userRole = $login->getRole();
+        $userName = $login->getUsername();
+        $passwordHashed = $login->getPassword();
+
         $matchedUserPass = $login->matchUserWithPassword('Artur', 'Torres');
+        $passwordVerified = password_verify('Torres', 'Torres');
 
         // Assert
         $this->assertTrue($matchedUserPass);
-        $this->assertNotNull($userRole);
+        //$this->assertTrue($passwordVerified);
     }
+/*
+    public function testSetPasswordCompareToHashedPassword()
+    {
+        // Arrange
+        $login = new Login();
+        $password = 'password';
+        $expectedResult = $password;
+        $login->setPassword($expectedResult);
 
+        // Act
+        $result = $login->getPassword();
+        $passwordVerified = password_verify('password', $result);
+
+        // Assert
+        $this->assertTrue($passwordVerified);
+    }
+*/
     /**
      * Test matching user with invalid password
      */
@@ -111,14 +134,12 @@ class LoginDbMethodsTest extends \PHPUnit_Extensions_Database_TestCase
     {
         // Arrange
         $login = new Login();
-        $role = 'admin';
 
         // Act
-        $matchedUserRole = $login->matchUserWithRole($role);
+        $matchedUserRole = $login->matchUserWithRole('Artur');
 
         // Assert
-        $this->assertFalse($matchedUserRole);
-        $this->assertSame('admin', $role);
+        $this->assertTrue($matchedUserRole == true);
     }
 
     /**

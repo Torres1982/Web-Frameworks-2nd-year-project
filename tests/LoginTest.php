@@ -10,6 +10,23 @@ use Itb\Model\Login;
 class LoginTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * Test if the Login user ID is not different than expected result
+     */
+    public function testSetGetLoginUserIdTheSameValue()
+    {
+        // Arrange
+        $login = new Login();
+        $login->setId(3);
+        $expectedResult = 3;
+
+        // Act
+        $result = $login->getId();
+
+        // Assert
+        $this->assertEquals($expectedResult, $result);
+    }
+
+    /**
      * Test if the Login username is a string value
      */
     public function testSetLoginUsernameIsString()
@@ -41,30 +58,6 @@ class LoginTest extends \PHPUnit_Framework_TestCase
 
         // Assert
         $this->assertTrue(is_string($result));
-    }
-
-    /**
-     * Test if the Login hashed password contains more than or equal to 60 characters
-     */
-    public function testSetLoginHashedPasswordLengthGreaterThanOrEqualToSixtyCharacters()
-    {
-        // Arrange
-        $login = new Login();
-        $password = '12345678klahsdfhksalhkdljhsfajhasjdlhjlshafjkshadfuierifhksajhdkjfhjkhkaslkjdklfhkjhskah';
-        $login->setPassword($password);
-        //$isLengthGreaterOrEqual = false;
-
-        // Act
-        $result = $login->getPassword();
-        $passwordLength = strlen($result);
-/*
-        if ($passwordLength >= 8) {
-            $isLengthGreaterOrEqual = true;
-        }
-*/
-        // Assert
-        //$this->assertTrue($isLengthGreaterOrEqual);
-        $this->assertGreaterThanOrEqual($passwordLength, 60);
     }
 
     /**

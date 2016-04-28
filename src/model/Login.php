@@ -86,6 +86,15 @@ class Login extends DatabaseTable
     //****************** SETTERS ******************
     //*********************************************
     /**
+     * Set the ID
+     * @param $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Set the username
      * @param $username
      */
