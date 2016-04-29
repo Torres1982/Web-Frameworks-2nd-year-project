@@ -31,14 +31,28 @@ class AdminController
      */
     public function adminIndexAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] = true) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminIndex';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminIndex';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -86,14 +100,28 @@ class AdminController
      */
     public function adminCreateAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] = true) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminCreate';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminCreate';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -138,14 +166,28 @@ class AdminController
      */
     public function adminCreateMemberAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminCreateMember';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminCreateMember';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -157,14 +199,28 @@ class AdminController
      */
     public function adminCreateProjectAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminCreateProject';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminCreateProject';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -176,14 +232,28 @@ class AdminController
      */
     public function adminCreatePublicationAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminCreatePublication';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminCreatePublication';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -404,14 +474,28 @@ class AdminController
      */
     public function adminDeleteAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDelete';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDelete';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -423,17 +507,31 @@ class AdminController
      */
     public function adminDeleteLoginUserAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $logins = Login::getAll();
+                $logins = Login::getAll();
 
-        $argsArray =[
-            'logins' => $logins,
-            'userSession' => $localUser
+                $argsArray = [
+                    'logins' => $logins,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDeleteLoginUser';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
+
+        $argsArray = [
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDeleteLoginUser';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -445,17 +543,31 @@ class AdminController
      */
     public function adminDeleteStudentAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $students = Student::getAll();
+                $students = Student::getAll();
+
+                $argsArray = [
+                    'students' => $students,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDeleteStudent';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'students' => $students,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDeleteStudent';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -467,17 +579,31 @@ class AdminController
      */
     public function adminDeleteMemberAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $members = Member::getAll();
+                $members = Member::getAll();
+
+                $argsArray = [
+                    'members' => $members,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDeleteMember';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'members' => $members,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDeleteMember';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -489,17 +615,31 @@ class AdminController
      */
     public function adminDeleteProjectAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $projects = Project::getAll();
+                $projects = Project::getAll();
+
+                $argsArray = [
+                    'projects' => $projects,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDeleteProject';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'projects' => $projects,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDeleteProject';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -511,17 +651,31 @@ class AdminController
      */
     public function adminDeletePublicationAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $publications = Publication::getAll();
+                $publications = Publication::getAll();
+
+                $argsArray = [
+                    'publications' => $publications,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminDeletePublication';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'publications' => $publications,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminDeletePublication';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -664,14 +818,28 @@ class AdminController
      */
     public function adminEditAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEdit';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEdit';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -683,17 +851,31 @@ class AdminController
      */
     public function adminEditStudentAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $students = Student::getAll();
+                $students = Student::getAll();
+
+                $argsArray = [
+                    'students' => $students,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditStudent';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'students' => $students,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditStudent';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -705,17 +887,31 @@ class AdminController
      */
     public function adminEditMemberAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $members = Member::getAll();
+                $members = Member::getAll();
+
+                $argsArray = [
+                    'members' => $members,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditMember';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'members' => $members,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditMember';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -727,17 +923,31 @@ class AdminController
      */
     public function adminEditProjectAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $projects = Project::getAll();
+                $projects = Project::getAll();
+
+                $argsArray = [
+                    'projects' => $projects,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditProject';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'projects' => $projects,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditProject';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -749,17 +959,31 @@ class AdminController
      */
     public function adminEditPublicationAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $publications = Publication::getAll();
+                $publications = Publication::getAll();
+
+                $argsArray = [
+                    'publications' => $publications,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditPublication';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'publications' => $publications,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditPublication';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -772,17 +996,31 @@ class AdminController
      */
     public function adminEditStudentFormAction(Request $request, Application $app, $id)
     {
-        $student = Student::getOneById($id);
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $student = Student::getOneById($id);
 
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'student' => $student,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditStudentForm';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'student' => $student,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditStudentForm';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -795,17 +1033,31 @@ class AdminController
      */
     public function adminEditMemberFormAction(Request $request, Application $app, $id)
     {
-        $member = Member::getOneById($id);
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $member = Member::getOneById($id);
 
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'member' => $member,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditMemberForm';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'member' => $member,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditMemberForm';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -818,17 +1070,31 @@ class AdminController
      */
     public function adminEditProjectFormAction(Request $request, Application $app, $id)
     {
-        $project = Project::getOneById($id);
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $project = Project::getOneById($id);
 
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'project' => $project,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditProjectForm';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'project' => $project,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditProjectForm';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -841,17 +1107,31 @@ class AdminController
      */
     public function adminEditPublicationFormAction(Request $request, Application $app, $id)
     {
-        $publication = Publication::getOneById($id);
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $publication = Publication::getOneById($id);
 
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'publication' => $publication,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditPublicationForm';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'publication' => $publication,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminEditPublicationForm';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1033,14 +1313,28 @@ class AdminController
      */
     public function adminReadAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminRead';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminRead';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1052,17 +1346,31 @@ class AdminController
      */
     public function adminReadLoginUserAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $logins = Login::getAll();
+                $logins = Login::getAll();
+
+                $argsArray = [
+                    'logins' => $logins,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminReadLoginUser';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'logins' => $logins,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminReadLoginUser';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1074,17 +1382,31 @@ class AdminController
      */
     public function adminReadStudentAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $students = Student::getAll();
+                $students = Student::getAll();
+
+                $argsArray = [
+                    'students' => $students,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminReadStudent';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'students' => $students,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminReadStudent';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1096,17 +1418,31 @@ class AdminController
      */
     public function adminReadMemberAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $members = Member::getAll();
+                $members = Member::getAll();
+
+                $argsArray = [
+                    'members' => $members,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminReadMember';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'members' => $members,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminReadMember';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1118,17 +1454,31 @@ class AdminController
      */
     public function adminReadProjectAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $projects = Project::getAll();
+                $projects = Project::getAll();
+
+                $argsArray = [
+                    'projects' => $projects,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminReadProject';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'projects' => $projects,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminReadProject';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1140,17 +1490,31 @@ class AdminController
      */
     public function adminReadPublicationAction(Request $request, Application $app)
     {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
 
-        $publications = Publication::getAll();
+                $publications = Publication::getAll();
+
+                $argsArray = [
+                    'publications' => $publications,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminReadPublication';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'publications' => $publications,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'adminReadPublication';
+        $templateName = 'errorMessageSession';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 }

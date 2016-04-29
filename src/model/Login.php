@@ -166,7 +166,7 @@ class Login extends DatabaseTable
         $user = Login::getOneByUsername($username);
         $passwordHashed = $user->getPassword();
 
-        // if no record has this username, return FALSE
+        // if username does not exist, return FALSE
         if (null == $user) {
             return false;
         } else {

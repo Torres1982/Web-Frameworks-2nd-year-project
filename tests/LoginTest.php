@@ -146,36 +146,21 @@ class LoginTest extends \PHPUnit_Framework_TestCase
      * Test the matching the username with invalid password
      */
 /*
-    public function testMatchUsernameWithInvalidPassword2()
+    public function testMatchUsernameWithPasswordUserNull()
     {
         // Arrange
         $login = new Login();
-        $username = 'Artur';
-        $password = 'Wrong';
-        $login->setPassword($password);
-        $login->setUsername($username);
+        $login->setUsername('Artur');
 
         // Act
-        $matchedUserInvalidPass = $login->matchUserWithPassword('Artur', 'Wrong');
+        $matchedUserInvalidPass = $login->matchUserWithPassword(null, 'Torres');
 
-        // Assert
+        // Arrange
+        //$this->assertFalse($username == 'Artur');
         $this->assertFalse($matchedUserInvalidPass);
     }
+*/
 
-        public function testMatchUsernameWithPasswordUserNull()
-        {
-            // Arrange
-            $login = new Login();
-            $login->setUsername('Artur');
-
-            // Act
-            $matchedUserInvalidPass = $login->matchUserWithPassword(null, 'Torres');
-
-            // Arrange
-            //$this->assertFalse($username == 'Artur');
-            $this->assertFalse($matchedUserInvalidPass);
-        }
-    */
     /**
      * Test matching user with invalid password
      */
@@ -191,7 +176,7 @@ class LoginTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($result);
     }
 
-    public function testSetPasswordCompareToHashedPassword()
+    public function testSetPasswordVerifyHashedPassword()
     {
         // Arrange
         $login = new Login();
