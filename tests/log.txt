@@ -63,7 +63,4 @@ ok 61 - ItbTest\StudentTest::testSetMemberIdToIntCheckIsNotNull
 ok 62 - ItbTest\StudentTest::testSetEmailContainsAtSign
 ok 63 - ItbTest\StudentTest::testGetStudentByUsername
 ok 64 - ItbTest\StudentTest::testGetStudentByUsernameNonExistingUser
-ok 65 - ItbTest\ZMetaTest::testPSR2DirectorySrc
-ok 66 - ItbTest\ZMetaTest::testPSR2DirectoryTests
-ok 67 - ItbTest\ZMetaTest::testPSR2DirectoryPublic
-1..67
+1..64

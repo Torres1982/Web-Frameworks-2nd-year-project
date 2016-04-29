@@ -113,22 +113,6 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test the get one Login user by username - non existing user
-     */
-    public function testGetLoginUserByUsernameNonExistingUser()
-    {
-        // Arrange
-        $login = new Login();
-        $username = null;
-
-        // Act
-        $object = $login->getOneByUsername($username);
-
-        // Assert
-        $this->assertNull($object);
-    }
-
-    /**
      * Test the matching the username with password
      */
     public function testMatchUsernameWithPassword()
@@ -147,25 +131,6 @@ class LoginTest extends \PHPUnit_Framework_TestCase
         // Assert
         $this->assertTrue($matchedUserPass);
     }
-
-    /**
-     * Test the matching the username with invalid password
-     */
-/*
-    public function testMatchUsernameWithPasswordUserNull()
-    {
-        // Arrange
-        $login = new Login();
-        $login->setUsername('Artur');
-
-        // Act
-        $matchedUserInvalidPass = $login->matchUserWithPassword(null, 'Torres');
-
-        // Arrange
-        //$this->assertFalse($username == 'Artur');
-        $this->assertFalse($matchedUserInvalidPass);
-    }
-*/
 
     /**
      * Test matching user with invalid password

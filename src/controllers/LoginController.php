@@ -46,7 +46,7 @@ class LoginController
             $usernameFromDb = $user->getUsername();
             //$passwordFromDb = $user->getPassword();
 
-            $isPresent = Login::matchUserWithPassword($usernameFromInput, $passwordFromInput);
+            $isPresent = LoginController::matchUserWithPassword($usernameFromInput, $passwordFromInput);
             $isRole = Login::matchUserWithRole($usernameFromDb);
 
             if ($usernameFromInput != $usernameFromDb) {
