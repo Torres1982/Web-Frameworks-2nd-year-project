@@ -1,4 +1,9 @@
 <?php
+/**
+ * Created by B00073668
+ * @author - Artur Sukiennik
+ * @since - 2016
+ */
 namespace ItbTest;
 
 use Itb\Model\Publication;

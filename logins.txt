@@ -7,3 +7,5 @@ Username: Marry / Password: Stew / (member)
 ------------ Entries from the Tests ---------------
 ---------------------------------------------------
 Username: Artur / Password: Torres / (admin)
+Username: Artur / Password: Torres / (admin)
+Username: Artur / Password: Torres / (admin)
