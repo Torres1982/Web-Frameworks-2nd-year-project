@@ -100,4 +100,24 @@ class LoginController
         $templateName = 'index';
         return $app['twig']->render($templateName . '.html.twig', []);
     }
+
+    /**
+     * Check if the username exists in the Database 'login' table
+     * Hash the Password and verify it
+     * @param $username
+     * @param $password
+     * @return bool
+     */
+    public static function matchUserWithPassword($username, $password)
+    {
+        $user = Login::getOneByUsername($username);
+        $passwordHashed = $user->getPassword();
+
+        // if username does not exist, return FALSE
+        if (null == $user) {
+            return false;
+        } else {
+            return password_verify($password, $passwordHashed);
+        }
+    }
 }
