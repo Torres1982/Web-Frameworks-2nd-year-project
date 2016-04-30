@@ -35,31 +35,12 @@ class StudentController
     }
 
     /**
-     * Redirect Student to the 'student index' page
+     * Redirect Student to the 'index' page
      * @param Request $request
      * @param Application $app
      * @return mixed
      */
     public function studentIndexAction(Request $request, Application $app)
-    {
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
-
-        $appArgs = [
-            'userSession' => $localUser
-        ];
-
-        $templateName = 'studentIndex';
-        return $app['twig']->render($templateName . '.html.twig', $appArgs);
-    }
-
-    /**
-     * Redirect Student to the 'student read' page
-     * @param Request $request
-     * @param Application $app
-     * @return mixed
-     */
-    public function studentReadYourselfAction(Request $request, Application $app)
     {
         $user = $app['session']->get('user');
         $localUser = $user['username'];
@@ -78,7 +59,7 @@ class StudentController
             'userSession' => $localUser
         ];
 
-        $templateName = 'studentReadYourself';
+        $templateName = 'studentIndex';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -147,6 +128,40 @@ class StudentController
         }
 
         $templateName = 'confirmationStudent';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    public function studentUploadPhotoAction(Request $request, Application $app)
+    {
+        $user = $app['session']->get('user');
+        $localUser = $user['username'];
+
+        // Get ID for the user currently logged in ($localUser)
+        $student = Student::getStudentByUsername($localUser);
+        $id = $student->getId();
+
+        // Get all information for the currently logged in user (1 row)
+        $studentRecord = Student::getOneById($id);
+
+        // Path to where uploaded pictures will be stored
+        $target_path = "uploads/";
+        $target_path = $target_path . basename($_FILES['uploadedImage']['name']);
+        $profileImage = basename($_FILES['uploadedImage']['name']);
+
+        // The path to temporary file and path to where the file will be stored must be provided
+        if (move_uploaded_file($_FILES['uploadedImage']['tmp_name'], $target_path)) {
+            echo "The image " . $profileImage . " has been uploaded";
+        } else {
+            echo "Error! Image has not been uploaded!";
+        }
+
+        $argsArray = [
+            'profileImage' => $profileImage,
+            'student' => $studentRecord,
+            'userSession' => $localUser
+        ];
+
+        $templateName = 'studentIndex';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 

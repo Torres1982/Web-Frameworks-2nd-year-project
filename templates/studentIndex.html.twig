@@ -14,11 +14,40 @@
         <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
     </h4>
 
-    <div>
-        <ul>
-            <li class = "removeBullet"> <a href = "/studentReadYourself" class = "editLinks"> Read </a> </li>
-            <li class = "removeBullet"> <a href = "/studentUploadPhoto" class = "editLinks"> Upload Photo </a> </li>
-        </ul>
-    </div>
+    <table>
+        <tr>
+            <th> Student ID </th>
+            <th> Student Name </th>
+            <th> Student Surname </th>
+            <th> Project ID </th>
+            <th> Email </th>
+            <th> Supervisor </th>
+        </tr>
+        <tr>
+            <td> {{ student.id }} </td>
+            <td> {{ student.studentName }} </td>
+            <td> {{ student.studentSurname }} </td>
+            <td> {{ student.projectId }} </td>
+            <td> {{ student.email }} </td>
+            <td> {{ student.memberId }} </td>
+            <td> <a href = "studentEditForm/{{ student.id }}"> Edit </a> </td>
+        </tr>
+    </table>
+
+    <form method = "post" action = "/studentUploadPhoto" enctype = "multipart/form-data">
+        <p>
+            <span id = "alignLeft"> Upload your profile picture </span>
+        </p>
+            <input type = "hidden" name = "MAX_FILE_SIZE" value = "200000" />
+        <p>
+            <input type = "file" name = "uploadedImage">
+        </p>
+        <p>
+            <input type = "submit" value = "Load Picture">
+        </p>
+        <p>
+            <image src = "../uploads/{{ profileImage }}" alt = "Profile Image" id = "profilePicture">
+        </p>
+    </form>
 
 {% endblock %}

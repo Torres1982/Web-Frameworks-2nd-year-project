@@ -135,3 +135,8 @@ h2 {
 #fixMarginMiddleButton {
     margin-right: 1.5rem;
 }
+
+#profilePicture {
+    height: 10rem;
+    width: 10rem;
+}

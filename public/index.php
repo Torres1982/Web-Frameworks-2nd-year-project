@@ -67,10 +67,9 @@ $app->get('/adminReadPublication', Utility::controller('Itb\Controller', 'admin/
 
 // Student Controllers
 $app->get('/studentIndex', Utility::controller('Itb\Controller', 'student/studentIndex'));
-$app->get('/studentReadYourself', Utility::controller('Itb\Controller', 'student/studentReadYourself'));
 $app->get('/studentEditForm/{id}', Utility::controller('Itb\Controller', 'student/studentEditForm'));
 $app->post('/studentEditFromDb', Utility::controller('Itb\Controller', 'student/studentEditFromDb'));
-$app->get('/studentUploadPhoto', Utility::controller('Itb\Controller', 'student/studentUploadPhoto'));
+$app->post('/studentUploadPhoto', Utility::controller('Itb\Controller', 'student/studentUploadPhoto'));
 $app->get('/showOneStudent/{id}', Utility::controller('Itb\Controller', 'student/showOneStudent'));
 $app->get('/showOneStudent/', Utility::controller('Itb\Controller', 'student/showOneStudentMissingId'));
 
