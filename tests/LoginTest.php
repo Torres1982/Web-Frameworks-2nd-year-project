@@ -8,6 +8,7 @@ namespace ItbTest;
 
 use Itb\Model\Login;
 use Itb\Controller\LoginController;
+
 /**
  * Class LoginTest - it manages all the Login tests
  * @package ItbTest
@@ -38,7 +39,7 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     {
         // Arrange
         $login = new Login();
-        $username = 'Hammer';
+        $username = 'Harry';
         $login->setUsername($username);
 
         // Act
@@ -138,7 +139,7 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     public function testMatchUsernameWithInvalidPassword()
     {
         // Arrange
-        $login = new Login();
+        //$login = new Login();
         $loginController = new LoginController();
 
         // Act
@@ -201,14 +202,14 @@ class LoginTest extends \PHPUnit_Framework_TestCase
     {
         // Arrange
         $login = new Login();
-        $role = 'admin';
-        $username = 'Artur';
-        $password = 'Torres';
+        $role = 'testingRole';
+        $username = 'testingUsername';
+        $password = 'testingPassword';
 
         // Act
         $userAppendedToFile = $login->appendUserLoginToFile($role, $username, $password);
 
         // Assert
-        $this->assertTrue(is_null($userAppendedToFile));
+        $this->assertNotNull($userAppendedToFile);
     }
 }

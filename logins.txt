@@ -1,16 +1,12 @@
 Username: Artur / Password: Torres / (admin)
 Username: John / Password: Clark / (student)
 Username: Marry / Password: Stew / (member)
-
-
----------------------------------------------------
------------- Entries from the Tests ---------------
----------------------------------------------------
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
-Username: Artur / Password: Torres / (admin)
+Username: Maria / Password: Kinlay / (member)
+Username: Josh / Password: Kirk / (member)
+Username: Giselle / Password: OBrian / (member)
+Username: Aoife / Password: Mercy / (member)
+Username: Brian / Password: Murphy / (student)
+Username: Aoife / Password: McCarthy / (student)
+Username: Anna / Password: Stew / (student)
+Username: Mary / Password: Brown / (student)
+Username: Barry / Password: Manning / (student)

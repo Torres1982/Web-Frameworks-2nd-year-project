@@ -177,6 +177,7 @@ class Login extends DatabaseTable
      * @param $role
      * @param $name
      * @param $password
+     * @return bool
      */
     public function appendUserLoginToFile($role, $name, $password)
     {
@@ -191,7 +192,7 @@ class Login extends DatabaseTable
         //$name = ucwords($name);
 
         // Create the new file if does not exist
-        $loginDetailsFile = 'logins.txt';
+        $loginDetailsFile = '../logins.txt';
 
         // File Handler - opens a file and allows to append to the file
         $fileHandler = fopen($loginDetailsFile, 'a') or die('File ' . $loginDetailsFile . ' not found!');
@@ -206,5 +207,6 @@ class Login extends DatabaseTable
         fclose($fileHandler);
 
         //echo 'New login appended to the ' . $loginDetailsFile . ' file';
+        return true;
     }
 }
