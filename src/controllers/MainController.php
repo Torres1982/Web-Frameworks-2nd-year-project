@@ -8,11 +8,6 @@ namespace Itb\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Itb\Model\Login;
-use Itb\Model\Member;
-use Itb\Model\Project;
-use Itb\Model\Publication;
-use Itb\Model\Student;
 
 /**
  * Class MainController - manages 'main' actions

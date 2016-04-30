@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @todo ask matt about XYZ
- */
-
 // Basic setup
 require_once __DIR__ . '/../app/setup.php';
 
