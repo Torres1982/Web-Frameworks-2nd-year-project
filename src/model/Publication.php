@@ -4,7 +4,7 @@
  * @author - Artur Sukiennik
  * @since - 2016
  */
-namespace Itb\model;
+namespace Itb\Model;
 
 use Mattsmithdev\PdoCrud\DatabaseTable;
 
