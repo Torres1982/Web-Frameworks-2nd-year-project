@@ -23,6 +23,7 @@
             <th> Email </th>
             <th> Supervisor </th>
             <th> Image Name </th>
+            <th> Edit </th>
         </tr>
         <tr>
             <td> {{ student.id }} </td>
@@ -31,7 +32,7 @@
             <td> {{ student.projectId }} </td>
             <td> {{ student.email }} </td>
             <td> {{ student.memberId }} </td>
-            <td> {{ student.imageName }}</td>
+            <td> {{ student.imageName }} </td>
             <td> <a href = "studentEditForm/{{ student.id }}"> Edit </a> </td>
         </tr>
     </table>
