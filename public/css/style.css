@@ -91,11 +91,11 @@ h4 {
     border-radius: 0.3rem;
 }
 
-.styleLogin {
+.styleButton {
     text-decoration: none;
     border: 0.1rem solid yellow;
     text-align: center;
-    color: white;
+    color: yellow;
     background-color: grey;
     border-radius: 0.3rem;
     padding: 0.2rem;
@@ -137,6 +137,8 @@ h2 {
 }
 
 #profilePicture {
+    border-radius: 0.3rem;
+    margin-left: 1.7rem;
     height: 10rem;
     width: 12rem;
 }
