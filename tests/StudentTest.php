@@ -232,4 +232,22 @@ class StudentTest extends \PHPUnit_Framework_TestCase
         // Assert
         $this->assertNull($object);
     }
+
+    /**
+     * Test the Student's profile image name
+     */
+    public function testSetGetStudentProfileImageName()
+    {
+        // Arrange
+        $student = new Student();
+        $imageName = 'image.jpg';
+        $student->setImageName($imageName);
+
+        // Act
+        $result = $student->getImageName();
+        $expectedResult = 'image.jpg';
+
+        // Arrange
+        $this->assertEquals($expectedResult, $result);
+    }
 }

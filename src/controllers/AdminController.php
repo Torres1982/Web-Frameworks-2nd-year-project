@@ -322,6 +322,7 @@ class AdminController
         $projectId = filter_input(INPUT_POST, 'projectId', FILTER_SANITIZE_NUMBER_INT);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
         $memberId = filter_input(INPUT_POST, 'memberId', FILTER_SANITIZE_NUMBER_INT);
+        $imageName = filter_input(INPUT_POST, 'imageName', FILTER_SANITIZE_STRING);
 
         // Create the new Student and store her/his data in Database
         $newStudent = new Student();
@@ -330,6 +331,7 @@ class AdminController
         $newStudent->setProjectId($projectId);
         $newStudent->setEmail($email);
         $newStudent->setMemberId($memberId);
+        $newStudent->setImageName($imageName);
 
         //$insertStudent = new Student();
         //$studentInsertedSuccess = $insertStudent->insert($newStudent);
@@ -1150,6 +1152,7 @@ class AdminController
         $projectId = filter_input(INPUT_POST, 'projectId', FILTER_SANITIZE_NUMBER_INT);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
         $memberId = filter_input(INPUT_POST, 'memberId', FILTER_SANITIZE_NUMBER_INT);
+        $imageName = filter_input(INPUT_POST, 'imageName', FILTER_SANITIZE_STRING);
 
         // Create the new Student and update her/his data
         $newStudent = new Student();
@@ -1159,6 +1162,7 @@ class AdminController
         $newStudent->setProjectId($projectId);
         $newStudent->setEmail($email);
         $newStudent->setMemberId($memberId);
+        $newStudent->setImageName($imageName);
 
         //var_dump($newStudent);
         //die();

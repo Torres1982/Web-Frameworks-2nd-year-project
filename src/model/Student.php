@@ -54,6 +54,12 @@ class Student extends DatabaseTable
      */
     private $memberId;
 
+    /**
+     * default profile image name
+     * @var string
+     */
+    private $imageName;
+
     //*********************************************
     //****************** GETTERS ******************
     //*********************************************
@@ -111,6 +117,15 @@ class Student extends DatabaseTable
         return $this->memberId;
     }
 
+    /**
+     * get the image name
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
     //*********************************************
     //****************** SETTERS ******************
     //*********************************************
@@ -160,12 +175,21 @@ class Student extends DatabaseTable
     }
 
     /**
-     * set the member's id
+     * set the student's id
      * @param $memberId
      */
     public function setMemberId($memberId)
     {
         $this->memberId = $memberId;
+    }
+
+    /**
+     * se the student's profile image name
+     * @param $imageName
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
     }
 
     //*********************************************

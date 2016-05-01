@@ -22,6 +22,7 @@
             <th> Project ID </th>
             <th> Email </th>
             <th> Supervisor </th>
+            <th> Image Name </th>
         </tr>
         <tr>
             <td> {{ student.id }} </td>
@@ -30,15 +31,22 @@
             <td> {{ student.projectId }} </td>
             <td> {{ student.email }} </td>
             <td> {{ student.memberId }} </td>
+            <td> {{ student.imageName }}</td>
             <td> <a href = "studentEditForm/{{ student.id }}"> Edit </a> </td>
         </tr>
     </table>
 
     <form method = "post" action = "/studentUploadPhoto" enctype = "multipart/form-data">
+        <input type = "hidden" name = "id" value = "{{ student.id }}">
+        <input type = "hidden" name = "studentName"  value = "{{ student.studentName }}">
+        <input type = "hidden" name = "studentSurname" value = "{{ student.studentSurname }}">
+        <input type = "hidden"  name = "projectId" value = "{{ student.projectId }}">
+        <input type = "hidden" name = "email" value = "{{ student.email }}">
+        <input type = "hidden" name = "memberId" value = "{{ student.memberId }}">
+        <input type = "hidden" name = "imageName" value = "{{ student.imageName }}">
         <p>
             <span id = "alignLeft"> Upload your profile picture </span>
         </p>
-            <input type = "hidden" name = "MAX_FILE_SIZE" value = "200000" />
         <p>
             <input type = "file" name = "uploadedImage">
         </p>
@@ -46,7 +54,7 @@
             <input type = "submit" value = "Load Picture">
         </p>
         <p>
-            <image src = "../uploads/{{ profileImage }}" alt = "Profile Image" id = "profilePicture">
+            <img src = "../uploads/{{ student.imageName }}" alt = "Profile Image" id = "profilePicture">
         </p>
     </form>
 

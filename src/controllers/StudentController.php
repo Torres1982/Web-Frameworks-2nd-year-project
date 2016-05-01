@@ -101,6 +101,7 @@ class StudentController
         $projectId = filter_input(INPUT_POST, 'projectId', FILTER_SANITIZE_NUMBER_INT);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
         $memberId = filter_input(INPUT_POST, 'memberId', FILTER_SANITIZE_NUMBER_INT);
+        $imageName = filter_input(INPUT_POST, 'imageName', FILTER_SANITIZE_STRING);
 
         // Create the new Student and update her/his data
         $newStudent = new Student();
@@ -110,6 +111,7 @@ class StudentController
         $newStudent->setProjectId($projectId);
         $newStudent->setEmail($email);
         $newStudent->setMemberId($memberId);
+        $newStudent->setImageName($imageName);
 
         //var_dump($newStudent);
         //die();
@@ -131,8 +133,23 @@ class StudentController
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
+    /**
+     * Upload the student profile image and store it in the database
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
     public function studentUploadPhotoAction(Request $request, Application $app)
     {
+        // Get data from the input fields
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $studentName = filter_input(INPUT_POST, 'studentName', FILTER_SANITIZE_STRING);
+        $studentSurname = filter_input(INPUT_POST, 'studentSurname', FILTER_SANITIZE_STRING);
+        $projectId = filter_input(INPUT_POST, 'projectId', FILTER_SANITIZE_NUMBER_INT);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+        $memberId = filter_input(INPUT_POST, 'memberId', FILTER_SANITIZE_NUMBER_INT);
+        $imageName = filter_input(INPUT_POST, 'imageName', FILTER_SANITIZE_STRING);
+
         $user = $app['session']->get('user');
         $localUser = $user['username'];
 
@@ -143,20 +160,53 @@ class StudentController
         // Get all information for the currently logged in user (1 row)
         $studentRecord = Student::getOneById($id);
 
-        // Path to where uploaded pictures will be stored
-        $target_path = "uploads/";
-        $target_path = $target_path . basename($_FILES['uploadedImage']['name']);
-        $profileImage = basename($_FILES['uploadedImage']['name']);
+        $targetDirectory = "uploads/";
+        $targetFile = $targetDirectory . basename($_FILES["uploadedImage"]["name"]);
+        $fileName = basename($_FILES["uploadedImage"]["name"]);
+        $imageToUpload = true;
+        $imageType = pathinfo($targetFile, PATHINFO_EXTENSION);
 
-        // The path to temporary file and path to where the file will be stored must be provided
-        if (move_uploaded_file($_FILES['uploadedImage']['tmp_name'], $target_path)) {
-            echo "The image " . $profileImage . " has been uploaded";
+        // Check if image is already used
+        if (file_exists($targetFile)) {
+            echo "Image already in use!";
+            $imageToUpload = false;
+        }
+
+        // Check if the image size is not greater than 30 kb
+        if ($_FILES["uploadedImage"]["size"] > 300000) {
+            echo "Image is too large!";
+            $imageToUpload = false;
+        }
+
+        // Check the image formats
+        if ($imageType != "jpg" && $imageType != "png" && $imageType != "jpeg" && $imageType != "gif") {
+            echo "Use jpg, jpeg, png or gif!";
+            $imageToUpload = false;
+        }
+
+        // If imageToUpload is false - image cannot be uploaded
+        if ($imageToUpload == false) {
+            echo "Image cannot be uploaded!";
         } else {
-            echo "Error! Image has not been uploaded!";
+            // If all is ok, upload the image
+            if (move_uploaded_file($_FILES["uploadedImage"]["tmp_name"], $targetFile)) {
+                echo "The image ". $fileName . " has been uploaded!";
+                $newStudent = new Student();
+                $newStudent->setId($id);
+                $newStudent->setStudentName($studentName);
+                $newStudent->setStudentSurname($studentSurname);
+                $newStudent->setProjectId($projectId);
+                $newStudent->setEmail($email);
+                $newStudent->setMemberId($memberId);
+                $newStudent->setImageName($fileName);
+                Student::update($newStudent);
+            } else {
+                echo "Error while uploading image!";
+            }
         }
 
         $argsArray = [
-            'profileImage' => $profileImage,
+            //'imageName' => $imageName,
             'student' => $studentRecord,
             'userSession' => $localUser
         ];

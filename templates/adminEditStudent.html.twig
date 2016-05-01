@@ -22,6 +22,7 @@
             <th> Project ID </th>
             <th> Email </th>
             <th> Supervisor </th>
+            <th> Image Name </th>
         </tr>
         {% for student in students %}
             <tr>
@@ -31,6 +32,7 @@
                 <td> {{ student.projectId }} </td>
                 <td> {{ student.email }} </td>
                 <td> {{ student.memberId }} </td>
+                <td> {{ student.imageName }} </td>
                 <td> <a href = "adminEditStudentForm/{{ student.id }}"> Edit </a> </td>
             </tr>
         {% endfor %}
