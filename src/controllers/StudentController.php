@@ -172,7 +172,7 @@ class StudentController
             $imageToUpload = false;
         }
 
-        // Check if the image size is not greater than 30 kb
+        // Check if the image size is not greater than 300 kb
         if ($_FILES["uploadedImage"]["size"] > 300000) {
             echo "Image is too large!";
             $imageToUpload = false;
