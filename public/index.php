@@ -45,6 +45,9 @@ $app->get('/adminDeletePublication', Utility::controller('Itb\Controller', 'admi
 $app->get('/adminDeletePublicationFromDb/{id}', Utility::controller('Itb\Controller', 'admin/adminDeletePublicationFromDb'));
 
 $app->get('/adminEdit', Utility::controller('Itb\Controller', 'admin/adminEdit'));
+$app->get('/adminEditLoginUser', Utility::controller('Itb\Controller', 'admin/adminEditLoginUser'));
+$app->get('/adminEditLoginUserForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditLoginUserForm'));
+$app->post('/adminEditLoginUserFromDb', Utility::controller('Itb\Controller', 'admin/adminEditLoginUserFromDb'));
 $app->get('/adminEditStudent', Utility::controller('Itb\Controller', 'admin/adminEditStudent'));
 $app->get('/adminEditStudentForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditStudentForm'));
 $app->post('/adminEditStudentFromDb', Utility::controller('Itb\Controller', 'admin/adminEditStudentFromDb'));

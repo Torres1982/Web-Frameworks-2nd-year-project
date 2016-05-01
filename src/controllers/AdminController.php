@@ -846,6 +846,42 @@ class AdminController
     }
 
     /**
+     * Redirect Admin to the 'admin edit login user' page
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditLoginUserAction(Request $request, Application $app)
+    {
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $logins = Login::getAll();
+
+                $argsArray = [
+                    'logins' => $logins,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditLoginUser';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
+
+        $argsArray = [
+            'confirmMessage' => $errorMessage
+        ];
+
+        $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
      * Redirect Admin to the 'admin edit student' page
      * @param Request $request
      * @param Application $app
@@ -974,6 +1010,43 @@ class AdminController
                 ];
 
                 $templateName = 'adminEditPublication';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
+
+        $argsArray = [
+            'confirmMessage' => $errorMessage
+        ];
+
+        $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
+     * Redirect Admin to the 'admin edit login user form' page
+     * @param Request $request
+     * @param Application $app
+     * @param $id
+     * @return mixed
+     */
+    public function adminEditLoginUserFormAction(Request $request, Application $app, $id)
+    {
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $login = Login::getOneById($id);
+
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'login' => $login,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'adminEditLoginUserForm';
                 return $app['twig']->render($templateName . '.html.twig', $argsArray);
             }
         }
@@ -1138,6 +1211,44 @@ class AdminController
     }
 
     /**
+     * Edit Login User and store her/his in the Database
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditLoginUserFromDbAction(Request $request, Application $app)
+    {
+        // Get data from the input fields
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
+
+        // Create the new Student and update her/his data
+        $newLoginUser = new Login();
+        $newLoginUser->setId($id);
+        $newLoginUser->setUsername($username);
+        $newLoginUser->setPassword($password);
+        $newLoginUser->setRole($role);
+
+        // Update Student's data
+        $loginUserUpdatedSuccess = Login::update($newLoginUser);
+
+        if ($loginUserUpdatedSuccess) {
+            $argsArray = [
+                'confirmMessage' => 'Login User successfully edited and stored in the Database!'
+            ];
+        } else {
+            $argsArray = [
+                'confirmMessage' => 'Login User could not be edited and stored in the Database!'
+            ];
+        }
+
+        $templateName = 'confirmation';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
      * Edit Student and store her/his in the Database
      * @param Request $request
      * @param Application $app
@@ -1214,11 +1325,11 @@ class AdminController
 
         if ($memberUpdatedSuccess) {
             $argsArray = [
-                'confirmMessage' => 'Student successfully edited and stored in the Database!'
+                'confirmMessage' => 'Member successfully edited and stored in the Database!'
             ];
         } else {
             $argsArray = [
-                'confirmMessage' => 'Student could not be edited and stored in the Database!'
+                'confirmMessage' => 'Member could not be edited and stored in the Database!'
             ];
         }
 
@@ -1254,11 +1365,11 @@ class AdminController
 
         if ($publicationUpdatedSuccess) {
             $argsArray = [
-                'confirmMessage' => 'Student successfully edited and stored in the Database!'
+                'confirmMessage' => 'Publication successfully edited and stored in the Database!'
             ];
         } else {
             $argsArray = [
-                'confirmMessage' => 'Student could not be edited and stored in the Database!'
+                'confirmMessage' => 'Publication could not be edited and stored in the Database!'
             ];
         }
 
@@ -1294,11 +1405,11 @@ class AdminController
 
         if ($projectUpdatedSuccess) {
             $argsArray = [
-                'confirmMessage' => 'Student successfully edited and stored in the Database!'
+                'confirmMessage' => 'Project successfully edited and stored in the Database!'
             ];
         } else {
             $argsArray = [
-                'confirmMessage' => 'Student could not be edited and stored in the Database!'
+                'confirmMessage' => 'Project could not be edited and stored in the Database!'
             ];
         }
 

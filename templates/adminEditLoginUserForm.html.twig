@@ -1,0 +1,39 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Admin Edit Login User Form page
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h4>
+        <span id = "alignLeft"> Admin (Edit Login User Form) </span>
+        <span id = "floatRight" class = "removeBullet"> <a href = "/logout" class = "styleLogin"> Log out </a> </span>
+        <span id = "alignRight"> You are logged in as {{ userSession }} &nbsp;&nbsp; </span>
+    </h4>
+
+    <form method = "post" action = "/adminEditLoginUserFromDb">
+            <input type = "hidden" name = "id" value = "{{ login.id }}">
+        <p>
+            <input type = "text" name = "username"  value = "{{ login.username }}" placeholder = "Username">
+        </p>
+        <p>
+            <input type = "text" name = "password" value = "{{ login.password }}" placeholder = "Password">
+        </p>
+        <p>
+            <input type = "text"  name = "role" value = "{{ login.role }}" placeholder = "Role">
+        </p>
+        <p>
+            <input type = "submit" value = "Edit User">
+        </p>
+    </form>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/adminIndex" class = "editLinks"> Back Home </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}
