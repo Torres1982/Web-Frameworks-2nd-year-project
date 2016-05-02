@@ -47,18 +47,23 @@ $app->get('/adminDeletePublicationFromDb/{id}', Utility::controller('Itb\Control
 $app->get('/adminEdit', Utility::controller('Itb\Controller', 'admin/adminEdit'));
 $app->get('/adminEditLoginUser', Utility::controller('Itb\Controller', 'admin/adminEditLoginUser'));
 $app->get('/adminEditLoginUserForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditLoginUserForm'));
+$app->get('/adminEditLoginUserForm/', Utility::controller('Itb\Controller', 'admin/adminEditLoginUserFormMissingId'));
 $app->post('/adminEditLoginUserFromDb', Utility::controller('Itb\Controller', 'admin/adminEditLoginUserFromDb'));
 $app->get('/adminEditStudent', Utility::controller('Itb\Controller', 'admin/adminEditStudent'));
 $app->get('/adminEditStudentForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditStudentForm'));
+$app->get('/adminEditStudentForm/', Utility::controller('Itb\Controller', 'admin/adminEditStudentFormMissingId'));
 $app->post('/adminEditStudentFromDb', Utility::controller('Itb\Controller', 'admin/adminEditStudentFromDb'));
 $app->get('/adminEditMember', Utility::controller('Itb\Controller', 'admin/adminEditMember'));
 $app->get('/adminEditMemberForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditMemberForm'));
+$app->get('/adminEditMemberForm/', Utility::controller('Itb\Controller', 'admin/adminEditMemberFormMissingId'));
 $app->post('/adminEditMemberFromDb', Utility::controller('Itb\Controller', 'admin/adminEditMemberFromDb'));
 $app->get('/adminEditProject', Utility::controller('Itb\Controller', 'admin/adminEditProject'));
 $app->get('/adminEditProjectForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditProjectForm'));
+$app->get('/adminEditProjectForm/', Utility::controller('Itb\Controller', 'admin/adminEditProjectFormMissingId'));
 $app->post('/adminEditProjectFromDb', Utility::controller('Itb\Controller', 'admin/adminEditProjectFromDb'));
 $app->get('/adminEditPublication', Utility::controller('Itb\Controller', 'admin/adminEditPublication'));
 $app->get('/adminEditPublicationForm/{id}', Utility::controller('Itb\Controller', 'admin/adminEditPublicationForm'));
+$app->get('/adminEditPublicationForm/', Utility::controller('Itb\Controller', 'admin/adminEditPublicationFormMissingId'));
 $app->post('/adminEditPublicationFromDb', Utility::controller('Itb\Controller', 'admin/adminEditPublicationFromDb'));
 
 $app->get('/adminRead', Utility::controller('Itb\Controller', 'admin/adminRead'));
@@ -71,6 +76,7 @@ $app->get('/adminReadPublication', Utility::controller('Itb\Controller', 'admin/
 // Student Controllers
 $app->get('/studentIndex', Utility::controller('Itb\Controller', 'student/studentIndex'));
 $app->get('/studentEditForm/{id}', Utility::controller('Itb\Controller', 'student/studentEditForm'));
+$app->get('/studentEditForm/', Utility::controller('Itb\Controller', 'student/studentEditFormMissingId'));
 $app->post('/studentEditFromDb', Utility::controller('Itb\Controller', 'student/studentEditFromDb'));
 $app->post('/studentUploadPhoto', Utility::controller('Itb\Controller', 'student/studentUploadPhoto'));
 $app->get('/showOneStudent/{id}', Utility::controller('Itb\Controller', 'student/showOneStudent'));

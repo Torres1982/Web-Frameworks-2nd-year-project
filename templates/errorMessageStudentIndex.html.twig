@@ -1,0 +1,25 @@
+{% extends '_baseReduced.html.twig' %}
+
+{% block title %}
+    Error Message
+{% endblock %}
+
+{% block NavStyle %} {% endblock %}
+
+{% block main %}
+
+    <h3>
+        <strong> Error Message </strong>
+    </h3>
+
+    <div id = "confirmMessage">
+        {{ confirmMessage }}
+    </div>
+
+    <div>
+        <ul>
+            <li class = "removeBullet"> <a href = "/studentIndex" class = "editLinks"> Back </a> </li>
+        </ul>
+    </div>
+
+{% endblock %}

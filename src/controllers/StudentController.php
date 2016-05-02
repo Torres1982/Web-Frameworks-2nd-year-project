@@ -10,6 +10,9 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Itb\Model\Student;
 
+// Start the session
+session_start();
+
 /**
  * Class StudentController - manages 'students' actions
  * @package Itb\Controller
@@ -72,17 +75,49 @@ class StudentController
      */
     public function studentEditFormAction(Request $request, Application $app, $id)
     {
-        $student = Student::getOneById($id);
+        if (isset($_SESSION['isUserLoggedIn'])) {
+            if ($_SESSION['isUserLoggedIn'] != false) {
+                $student = Student::getOneById($id);
 
-        $user = $app['session']->get('user');
-        $localUser = $user['username'];
+                $user = $app['session']->get('user');
+                $localUser = $user['username'];
+
+                $argsArray = [
+                    'student' => $student,
+                    'userSession' => $localUser
+                ];
+
+                $templateName = 'studentEditForm';
+                return $app['twig']->render($templateName . '.html.twig', $argsArray);
+            }
+        }
+
+        // If the session is not set and is not true - display error
+        $errorMessage = 'You do not have rights to access this page!';
 
         $argsArray = [
-            'student' => $student,
-            'userSession' => $localUser
+            'confirmMessage' => $errorMessage
         ];
 
-        $templateName = 'studentEditForm';
+        $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
+     * Display error if the Student Id is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function studentEditFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Student ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'errorMessageStudentIndex';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 

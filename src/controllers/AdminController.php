@@ -1063,6 +1063,24 @@ class AdminController
     }
 
     /**
+     * Display an error if the Login User ID is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditLoginUserFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Login User ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'confirmation';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
      * Redirect Admin to the 'admin edit student form' page
      * @param Request $request
      * @param Application $app
@@ -1096,6 +1114,24 @@ class AdminController
         ];
 
         $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
+     * Display an error if the Student ID is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditStudentFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Student ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'confirmation';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
@@ -1137,6 +1173,24 @@ class AdminController
     }
 
     /**
+     * Display an error if the Member ID is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditMemberFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Member ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'confirmation';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
      * Redirect Admin to the 'admin edit project form' page
      * @param Request $request
      * @param Application $app
@@ -1174,6 +1228,24 @@ class AdminController
     }
 
     /**
+     * Display an error if the Project ID is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
+    public function adminEditProjectFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Project ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'confirmation';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    /**
      * Redirect Admin to the 'admin edit publication form' page
      * @param Request $request
      * @param Application $app
@@ -1207,6 +1279,18 @@ class AdminController
         ];
 
         $templateName = 'errorMessageSession';
+        return $app['twig']->render($templateName . '.html.twig', $argsArray);
+    }
+
+    public function adminEditPublicationFormMissingIdAction(Request $request, Application $app)
+    {
+        $confirmMessage = 'The Publication ID is missing!';
+
+        $argsArray = [
+            'confirmMessage' => $confirmMessage
+        ];
+
+        $templateName = 'confirmation';
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
