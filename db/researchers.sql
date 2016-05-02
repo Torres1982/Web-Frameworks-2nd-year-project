@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Apr 30, 2016 at 08:23 AM
+-- Generation Time: May 02, 2016 at 07:05 AM
 -- Server version: 10.1.9-MariaDB-log
 -- PHP Version: 5.6.16
 
@@ -42,13 +42,13 @@ INSERT INTO `logins` (`id`, `username`, `password`, `role`) VALUES
 (15, 'John', '$2y$10$aMOqkU83JBlDLgjrVZDZvuGrifBpwiUux5JZO3MVtmdo4qGhTdSYS', 'student'),
 (16, 'Mary', '$2y$10$5APY0LNe4YHUeWrpFft4/OA3WVFYYuoFUO8WxDl3escRNE1AC5x4W', 'member'),
 (18, 'Maria', '$2y$10$SPS63bQ/7n3TWGpbM91t5.O1q/kzooE6NSkYZHISyiBAjYwbzDj22', 'member'),
-(20, 'Josh', '$2y$10$sisLSMSTZK6Xp4B7ZMV3sOV.ttx.mQ7C3LNfpKv0Gr0yAZvKHOLc2', 'member'),
+(20, 'Josh', '$2y$10$aLRWZuPWRfZ8eNLKCkoNbucnL35aX6VQPVAQcNXUVNfDxmAoiXGNa', 'member'),
 (21, 'Giselle', '$2y$10$bhVev08ImvYn6HBSLMhd3O1kkERRwNk7oVux9T2lOHacJFZW7Clmu', 'member'),
 (22, 'Aoife', '$2y$10$t.8JXYQdQtVdEx28VUB1xenG4a/1yWIYUcCfl2eXmn/w2CT466wHC', 'member'),
 (23, 'Brian', '$2y$10$ZTBmNhgRULHwgxAK6HAWtO09kF6hDVDkBveIK6nywndm2oLRJUnQa', 'student'),
-(24, 'Aoife', '$2y$10$km8MgWPhUmGvbHsua2Uu7.isLWMC6tYLlIi9nMfWR2yd1ZFMRNh6C', 'student'),
-(25, 'Anna', '$2y$10$frA1bZlsZ5wfMApLfxtn3OsOxI3VVqDVg7iV8GyMAk5Otc3zhuVFG', 'student'),
-(26, 'Mary', '$2y$10$WJOXmZLB5G.qeQ7ItAShxuCX4yvzGSnkBNtEygfG46i1QDrYYRPRW', 'student'),
+(24, 'Alice', '$2y$10$km8MgWPhUmGvbHsua2Uu7.isLWMC6tYLlIi9nMfWR2yd1ZFMRNh6C', 'student'),
+(25, 'Anna', '$2y$10$QZurmIAEz1qwVXaIKzlZG.OpnMt2MOzNhXB5.gWuKnPC0Atsgaiy2', 'student'),
+(26, 'Caroline', '$2y$10$/4EzBjumxbr/ouAhfVfT/Ok7PtSztZW6ePZPDyPodljASUh4tKDHi', 'student'),
 (27, 'Barry', '$2y$10$Fp15ClM21AaMz8uZGQy7Q.yhX684rWj9SqopxCAgnopqTLB9B66U2', 'student');
 
 -- --------------------------------------------------------
@@ -141,20 +141,21 @@ CREATE TABLE `students` (
   `studentSurname` varchar(30) NOT NULL,
   `projectId` int(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `memberId` int(9) NOT NULL
+  `memberId` int(9) NOT NULL,
+  `imageName` varchar(50) NOT NULL DEFAULT 'defaultImage.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `studentName`, `studentSurname`, `projectId`, `email`, `memberId`) VALUES
-(2, 'Brian', 'Murphy', 2, 'stevenmurphy@gmail.com', 3),
-(3, 'Aoife', 'McCarthy', 4, 'aoifemccarthy@gmail.com', 1),
-(4, 'Anna', 'Stew', 8, 'annastew@gmail.com', 5),
-(5, 'Mary', 'Brown', 6, 'marybrown@gmail.com', 2),
-(8, 'Barry', 'Manning', 2, 'manning@gmail.com', 4),
-(9, 'John', 'Clark', 7, 'clark@gmail.com', 3);
+INSERT INTO `students` (`id`, `studentName`, `studentSurname`, `projectId`, `email`, `memberId`, `imageName`) VALUES
+(2, 'Brian', 'Murphy', 2, 'stevenmurphy@gmail.com', 3, 'shrek.jpg'),
+(3, 'Alice', 'McCarthy', 4, 'alicemccarthy@gmail.com', 1, 'kungFuPanda.jpg'),
+(4, 'Anna', 'Stern', 8, 'annastern@gmail.com', 5, 'bartSimpson.jpg'),
+(5, 'Caroline', 'Brow', 6, 'carolbrow@gmail.com', 2, 'defaultImage.jpg'),
+(8, 'Barry', 'Manning', 2, 'manning@gmail.com', 4, 'avatarMrBean.jpg'),
+(9, 'John', 'Clark', 7, 'clark@gmail.com', 3, 'moon.jpg');
 
 --
 -- Indexes for dumped tables
