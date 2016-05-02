@@ -19,7 +19,6 @@ $app->get('/logout', Utility::controller('Itb\Controller', 'login/logout'));
 
 // Admin Controllers
 $app->get('/adminIndex', Utility::controller('Itb\Controller', 'admin/adminIndex'));
-
 $app->get('/adminCreate', Utility::controller('Itb\Controller', 'admin/adminCreate'));
 $app->get('/adminCreateLoginUser', Utility::controller('Itb\Controller', 'admin/adminCreateLoginUser'));
 $app->post('/adminInsertLoginUserIntoDb', Utility::controller('Itb\Controller', 'admin/adminInsertLoginUserIntoDb'));
@@ -95,7 +94,7 @@ $app->get('/showPastProjects', Utility::controller('Itb\Controller', 'project/sh
 $app->error(function (\Exception $e, $code) use ($app) {
     switch ($code) {
         case 404:
-            $message = 'The requested page cannot be located.';
+            $message = 'The requested page cannot be located!';
             return \Itb\Controller\MainController::error404($app, $message);
 
         default:
