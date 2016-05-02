@@ -10,55 +10,60 @@ ok 8 - ItbTest\LoginTest::testMatchUsernameWithInvalidPassword
 ok 9 - ItbTest\LoginTest::testSetPasswordVerifyHashedPassword
 ok 10 - ItbTest\LoginTest::testMatchUserWithRole
 ok 11 - ItbTest\LoginTest::testMatchUserWithInvalidUserRole
-ok 12 - ItbTest\MemberTest::testSetGetMemberIdTheSameValue
-ok 13 - ItbTest\MemberTest::testSetGetMemberIdDifferentValues
-ok 14 - ItbTest\MemberTest::testSetMemberIdIsInteger
-ok 15 - ItbTest\MemberTest::testSetMemberIdToIntegerCheckIsNotNull
-ok 16 - ItbTest\MemberTest::testSetMemberNameIsString
-ok 17 - ItbTest\MemberTest::testSetMemberSurnameIsString
-ok 18 - ItbTest\MemberTest::testSetEmailContainsAtSign
-ok 19 - ItbTest\MemberTest::testClassHasAttributeMemberStatus
-ok 20 - ItbTest\MemberTest::testSetMemberStatusToStringCheckIsNotNull
-ok 21 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #0 (2, 2)
-ok 22 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #1 (3, 3)
-ok 23 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #2 (6, 6)
-ok 24 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #3 (9, 9)
-ok 25 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #4 (14, 14)
-ok 26 - ItbTest\ProjectTest::testSetGetProjectIdTheSameValue
-ok 27 - ItbTest\ProjectTest::testSetGetProjectIdDifferentValues
-ok 28 - ItbTest\ProjectTest::testSetProjectIdIsInteger
-ok 29 - ItbTest\ProjectTest::testSetProjectIdToIntegerCheckIsNotNull
-ok 30 - ItbTest\ProjectTest::testSetProjectNameIsString
-ok 31 - ItbTest\ProjectTest::testSetProjectTitleIsString
-ok 32 - ItbTest\ProjectTest::testClassHasAttributeProjectStatus
-ok 33 - ItbTest\ProjectTest::testSetProjectStatusToStringCheckIsNotNull
-ok 34 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #0 (2, 2)
-ok 35 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #1 (3, 3)
-ok 36 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #2 (6, 6)
-ok 37 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #3 (9, 9)
-ok 38 - ItbTest\PublicationTest::testSetGetPublicationIdTheSameValue
-ok 39 - ItbTest\PublicationTest::testSetGetPublicationIdDifferentValues
-ok 40 - ItbTest\PublicationTest::testSetPublicationIdIsInteger
-ok 41 - ItbTest\PublicationTest::testSetPublicationIdToIntegerCheckIsNotNull
-ok 42 - ItbTest\PublicationTest::testSetPublicationTitleIsString
-ok 43 - ItbTest\PublicationTest::testSetAuthorIdIsInteger
-ok 44 - ItbTest\PublicationTest::testSetPublicationUrlToStringCheckIsNotNull
-ok 45 - ItbTest\PublicationTest::testSetUrlContainsWwwString
-ok 46 - ItbTest\PublicationTest::testSetDateIsValidDate
-ok 47 - ItbTest\StudentTest::testSetGetStudentIdTheSameValue
-ok 48 - ItbTest\StudentTest::testSetGetStudentIdDifferentValues
-ok 49 - ItbTest\StudentTest::testSetStudentIdIsInteger
-ok 50 - ItbTest\StudentTest::testSetStudentIdToIntegerCheckIsNotNull
-ok 51 - ItbTest\StudentTest::testSetStudentNameIsString
-ok 52 - ItbTest\StudentTest::testSetStudentSurnameIsString
-ok 53 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #0 (1, 2)
-ok 54 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #1 (3, 7)
-ok 55 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #2 (5, 6)
-ok 56 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #3 (9, 1)
-ok 57 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #4 (4, 8)
-ok 58 - ItbTest\StudentTest::testClassHasAttributeMemberId
-ok 59 - ItbTest\StudentTest::testSetMemberIdToIntCheckIsNotNull
-ok 60 - ItbTest\StudentTest::testSetEmailContainsAtSign
-ok 61 - ItbTest\StudentTest::testGetStudentByUsername
-ok 62 - ItbTest\StudentTest::testGetStudentByUsernameNonExistingUser
-1..62
+ok 12 - ItbTest\LoginTest::testAppendUserLoginToFile
+ok 13 - ItbTest\MemberTest::testSetGetMemberIdTheSameValue
+ok 14 - ItbTest\MemberTest::testSetGetMemberIdDifferentValues
+ok 15 - ItbTest\MemberTest::testSetMemberIdIsInteger
+ok 16 - ItbTest\MemberTest::testSetMemberIdToIntegerCheckIsNotNull
+ok 17 - ItbTest\MemberTest::testSetMemberNameIsString
+ok 18 - ItbTest\MemberTest::testSetMemberSurnameIsString
+ok 19 - ItbTest\MemberTest::testSetEmailContainsAtSign
+ok 20 - ItbTest\MemberTest::testClassHasAttributeMemberStatus
+ok 21 - ItbTest\MemberTest::testSetMemberStatusToStringCheckIsNotNull
+ok 22 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #0 (2, 2)
+ok 23 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #1 (3, 3)
+ok 24 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #2 (6, 6)
+ok 25 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #3 (9, 9)
+ok 26 - ItbTest\MemberTest::testSetProjectIdTheSameValuesFromDataProvider with data set #4 (14, 14)
+ok 27 - ItbTest\ProjectTest::testSetGetProjectIdTheSameValue
+ok 28 - ItbTest\ProjectTest::testSetGetProjectIdDifferentValues
+ok 29 - ItbTest\ProjectTest::testSetProjectIdIsInteger
+ok 30 - ItbTest\ProjectTest::testSetProjectIdToIntegerCheckIsNotNull
+ok 31 - ItbTest\ProjectTest::testSetProjectNameIsString
+ok 32 - ItbTest\ProjectTest::testSetProjectTitleIsString
+ok 33 - ItbTest\ProjectTest::testClassHasAttributeProjectStatus
+ok 34 - ItbTest\ProjectTest::testSetProjectStatusToStringCheckIsNotNull
+ok 35 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #0 (2, 2)
+ok 36 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #1 (3, 3)
+ok 37 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #2 (6, 6)
+ok 38 - ItbTest\ProjectTest::testSetProjectSupervisorIdTheSameValuesFromDataProvider with data set #3 (9, 9)
+ok 39 - ItbTest\PublicationTest::testSetGetPublicationIdTheSameValue
+ok 40 - ItbTest\PublicationTest::testSetGetPublicationIdDifferentValues
+ok 41 - ItbTest\PublicationTest::testSetPublicationIdIsInteger
+ok 42 - ItbTest\PublicationTest::testSetPublicationIdToIntegerCheckIsNotNull
+ok 43 - ItbTest\PublicationTest::testSetPublicationTitleIsString
+ok 44 - ItbTest\PublicationTest::testSetAuthorIdIsInteger
+ok 45 - ItbTest\PublicationTest::testSetPublicationUrlToStringCheckIsNotNull
+ok 46 - ItbTest\PublicationTest::testSetUrlContainsWwwString
+ok 47 - ItbTest\PublicationTest::testSetDateIsValidDate
+ok 48 - ItbTest\StudentTest::testSetGetStudentIdTheSameValue
+ok 49 - ItbTest\StudentTest::testSetGetStudentIdDifferentValues
+ok 50 - ItbTest\StudentTest::testSetStudentIdIsInteger
+ok 51 - ItbTest\StudentTest::testSetStudentIdToIntegerCheckIsNotNull
+ok 52 - ItbTest\StudentTest::testSetStudentNameIsString
+ok 53 - ItbTest\StudentTest::testSetStudentSurnameIsString
+ok 54 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #0 (1, 2)
+ok 55 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #1 (3, 7)
+ok 56 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #2 (5, 6)
+ok 57 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #3 (9, 1)
+ok 58 - ItbTest\StudentTest::testSetProjectIdDifferentValuesFromDataProvider with data set #4 (4, 8)
+ok 59 - ItbTest\StudentTest::testClassHasAttributeMemberId
+ok 60 - ItbTest\StudentTest::testSetMemberIdToIntCheckIsNotNull
+ok 61 - ItbTest\StudentTest::testSetEmailContainsAtSign
+ok 62 - ItbTest\StudentTest::testGetStudentByUsername
+ok 63 - ItbTest\StudentTest::testGetStudentByUsernameNonExistingUser
+ok 64 - ItbTest\StudentTest::testSetGetStudentProfileImageName
+ok 65 - ItbTest\ZMetaTest::testPSR2DirectorySrc
+ok 66 - ItbTest\ZMetaTest::testPSR2DirectoryTests
+ok 67 - ItbTest\ZMetaTest::testPSR2DirectoryPublic
+1..67

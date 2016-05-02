@@ -1282,6 +1282,12 @@ class AdminController
         return $app['twig']->render($templateName . '.html.twig', $argsArray);
     }
 
+    /**
+     * Display an error if the Publication ID is missing
+     * @param Request $request
+     * @param Application $app
+     * @return mixed
+     */
     public function adminEditPublicationFormMissingIdAction(Request $request, Application $app)
     {
         $confirmMessage = 'The Publication ID is missing!';
